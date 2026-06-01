@@ -74,11 +74,12 @@ Project menggunakan MLflow untuk melakukan:
 
 ### Dashboard MLflow
 
-![Dashboard](screenshot_dashboard.jpg)
+![Dashboard](Membangun_model/screenshoot_dashboard.jpg)
 
 ### Artifact MLflow
 
-![Artifact](screenshot_artifak.jpg)
+![Artifact](Membangun_model/screenshoot_artifak.jpg)
+
 
 ## CI/CD
 
@@ -120,5 +121,4 @@ http://127.0.0.1:5000
 
 ## Author
 
-Muh Masrukhin Ferdian
-Politeknik Negeri Jember
+Muhammad Masrukhin Ferdian | Politeknik Negeri Jember
