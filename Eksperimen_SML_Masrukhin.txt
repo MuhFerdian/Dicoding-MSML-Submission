@@ -1,0 +1,16 @@
+Nama: Muhammad Masrukhin Ferdian
+
+Dataset:
+Crop Recommendation Dataset
+
+Algoritma:
+Random Forest Classifier
+
+Hasil:
+Accuracy = 99.54%
+
+Struktur:
+- preprocessing
+- Membangun_model
+- Monitoring-Logging
+- Workflow-CI

@@ -1,0 +1,12 @@
+.venv/
+.vscode/
+
+__pycache__/
+*.pyc
+
+mlruns/
+mlflow.db
+
+crop_model.pkl
+
+.ipynb_checkpoints/
