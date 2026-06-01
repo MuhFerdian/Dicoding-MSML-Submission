@@ -31,11 +31,11 @@ jobs:
 
     - name: Run MLflow Project
       run: |
-        cd MLProject
-        mlflow run .
+        cd Workflow-CI/MLProject
+        python modelling.py
 
     - name: Upload Model Artifact
       uses: actions/upload-artifact@v4
       with:
         name: crop-model
-        path: MLProject/crop_model.pkl 
+        path: Workflow-CI/MLProject/crop_model.pkl
