@@ -1,6 +1,14 @@
 # Crop Recommendation ML
 
-Proyek machine learning untuk merekomendasikan jenis tanaman berdasarkan:
+## Deskripsi Project
+
+Project Machine Learning untuk merekomendasikan jenis tanaman berdasarkan kondisi tanah dan lingkungan.
+
+Model memanfaatkan dataset Crop Recommendation dan menggunakan algoritma Random Forest Classifier untuk melakukan klasifikasi tanaman yang paling sesuai.
+
+## Dataset
+
+Dataset berisi beberapa fitur:
 
 - Nitrogen (N)
 - Phosphorus (P)
@@ -10,39 +18,107 @@ Proyek machine learning untuk merekomendasikan jenis tanaman berdasarkan:
 - pH
 - Rainfall
 
-## Struktur
+Target:
+
+- Label (Jenis Tanaman)
+
+## Struktur Project
 
 ### Eksperimen_SML_Masrukhin
-Eksperimen preprocessing dataset.
+Berisi proses eksplorasi data dan preprocessing dataset.
 
 ### Membangun_model
-Training model Random Forest dan penyimpanan model.
+Berisi proses training model Random Forest dan penyimpanan model.
+
+File utama:
+
+- modelling.py
+- crop_model.pkl
 
 ### Workflow-CI
-Implementasi CI/CD menggunakan GitHub Actions.
+Berisi implementasi Continuous Integration menggunakan GitHub Actions.
 
-## Model
+File utama:
 
-Algoritma:
+- MLProject
+- conda.yaml
+- modelling.py
+- requirements.txt
+
+## Algoritma
+
+Model yang digunakan:
+
 - Random Forest Classifier
 
+Parameter:
+
+- n_estimators = 200
+- random_state = 42
+
+## Hasil Evaluasi
+
+Accuracy:
+
+```
+0.9954
+```
+
+## MLflow Tracking
+
+Project menggunakan MLflow untuk melakukan:
+
+- Tracking parameter
+- Tracking metric
+- Logging model artifact
+
+### Dashboard MLflow
+
+![Dashboard](screenshot_dashboard.jpg)
+
+### Artifact MLflow
+
+![Artifact](screenshot_artifak.jpg)
+
 ## CI/CD
-Folder: Workflow-CI
-Workflow otomatis berjalan saat push ke branch main dan menghasilkan artifact model (.pkl).
 
-## Dataset
-Crop Recommendation Dataset
+Workflow GitHub Actions akan berjalan otomatis setiap push ke branch main.
 
-## Eksperimen
-Folder: Eksperimen_SML_Masrukhin
+Tahapan workflow:
 
-## Training Model
-Folder: Membangun_model
+1. Checkout Repository
+2. Setup Python
+3. Install Dependencies
+4. Training Model
+5. Upload Artifact Model
 
-Algoritma:
-- Random Forest
+## Cara Menjalankan
 
-GitHub Actions digunakan untuk:
-- install dependencies
-- menjalankan training
-- menghasilkan artifact model
+Install dependency:
+
+```bash
+pip install -r requirements.txt
+```
+
+Training model:
+
+```bash
+python modelling.py
+```
+
+Menjalankan MLflow:
+
+```bash
+mlflow ui
+```
+
+Akses dashboard:
+
+```text
+http://127.0.0.1:5000
+```
+
+## Author
+
+Muh Masrukhin Ferdian
+Politeknik Negeri Jember

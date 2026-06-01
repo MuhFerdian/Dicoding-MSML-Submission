@@ -1,14 +1,18 @@
 import pandas as pd
 import joblib
+import mlflow
+import mlflow.sklearn
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
     accuracy_score,
     classification_report,
-    confusion_matrix
-    
 )
+
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
+
+mlflow.set_experiment("Crop_Recommendation")
 
 # Load Dataset
 df = pd.read_csv("dataset_preprocessing.csv")
@@ -26,24 +30,42 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-# Training Model
-model = RandomForestClassifier(
-    n_estimators=200,
-    random_state=42
-)
+with mlflow.start_run():
 
-model.fit(X_train, y_train)
+    # Parameter
+    mlflow.log_param("n_estimators", 200)
+    mlflow.log_param("random_state", 42)
 
-# Prediksi
-y_pred = model.predict(X_test)
+    # Training
+    model = RandomForestClassifier(
+        n_estimators=200,
+        random_state=42
+    )
 
-# Evaluasi
-acc = accuracy_score(y_test, y_pred)
+    model.fit(X_train, y_train)
 
-print("Accuracy:", acc)
-print(classification_report(y_test, y_pred))
+    # Prediksi
+    y_pred = model.predict(X_test)
 
-# Simpan Model
+    # Evaluasi
+    acc = accuracy_score(y_test, y_pred)
+
+    print("Accuracy:", acc)
+    print(classification_report(y_test, y_pred))
+
+    # Metric
+    mlflow.log_metric(
+        "accuracy",
+        float(acc)
+    )
+
+    # Artifact model
+    mlflow.sklearn.log_model(
+        model,
+        artifact_path="model"
+    )
+
+# Simpan model lokal
 joblib.dump(
     model,
     "crop_model.pkl"

@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 
 mlruns/
+mlartifacts/
 mlflow.db
 
 Workflow-CI/MLProject/crop_model.pkl
