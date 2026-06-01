@@ -7,6 +7,6 @@ __pycache__/
 mlruns/
 mlflow.db
 
-crop_model.pkl
+Workflow-CI/MLProject/crop_model.pkl
 
 .ipynb_checkpoints/
